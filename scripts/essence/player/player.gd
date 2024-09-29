@@ -40,7 +40,9 @@ func walk_state(vel_del):
 	var direction : Vector2
 	direction.x = Input.get_axis("left", "right")
 	direction.y = Input.get_axis("up", "down")
-
+	
+	
+	#Передвижение
 	if direction:
 		velocity = Vector2(direction.x * SPEED,direction.y*SPEED) 
 	else:
@@ -49,6 +51,8 @@ func walk_state(vel_del):
 
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK	
+		
+	#Смена анимации в зависимости от вектора направления Direction
 	if direction.x == -1:
 		anim.flip_h=true
 	elif direction.x == 1: 
@@ -75,13 +79,13 @@ func walk_state(vel_del):
 	if health<=0:
 		state=DEATH
 
-
+#########################Не закончено#####################################
 func attack_state():
 	#print("hello")
 	state = WALK
 	pass
 
-
+#########################Не закончено#####################################
 func death_state():
 	anim_pl.play("death")
 	queue_free()

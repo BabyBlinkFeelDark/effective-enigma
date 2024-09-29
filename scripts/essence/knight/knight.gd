@@ -27,6 +27,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	#Машина состояний для NPC
 	if health<0:
 		alive=false
 	match state:
@@ -39,6 +40,7 @@ func _physics_process(delta: float) -> void:
 		GET_DAMAGE:
 			damage_state()
 			
+	#Поиск вектора направления 	
 	if GlobalValue.player_position:
 		if GlobalValue.player_position.x - global_position.x>0:
 			direction.x=-1
@@ -53,7 +55,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 func walk_state(vel_del):
 	
-
+	#Перемещение тела к игроку
+	
 	#if GlobalValue.player_position:
 		#position.x = move_toward(position.x, player.position.x, SPEED*vel_del)
 		#position.y = move_toward(position.y, player.position.y, SPEED*vel_del)		
@@ -68,15 +71,13 @@ func walk_state(vel_del):
 	#anim.play("walk_down")
 
 
-		
+#########################Не закончено#####################################		
 func death_state():
-	#print(health)
-	death()
-	pass
-	#await $AnimationPlayer.animated_finished
 	queue_free()
 
 
+
+#########################Не закончено#####################################
 func hit_state():
 	#anim.play("down_attack")
 	time_since_last_attack+=get_process_delta_time()
@@ -85,22 +86,23 @@ func hit_state():
 	if its_player == false:
 		state = WALK
 	
-	
+#########################Не закончено#####################################	
 func damage_state():
 	print(health)
 	if health<=0:
 		state = DEATH
 	state = WALK
 	
-		
+#########################Не закончено#####################################		
 func hit():
 	#player.health-=1
 	time_since_last_attack = 0
 
-
+#########################Не закончено#####################################
 func get_dmg():
 	pass
-		
+	
+#########################Не закончено#####################################		
 func _on_hit_boxes_body_entered(body: Node2D) -> void:
 	its_player=true
 
@@ -108,6 +110,4 @@ func _on_hit_boxes_body_entered(body: Node2D) -> void:
 func _on_hit_boxes_body_exited(body: Node2D) -> void:
 	its_player=false
 	
-func death():
-	$AnimationPlayer.play("death")
 	
