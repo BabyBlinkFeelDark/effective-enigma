@@ -1,6 +1,8 @@
 extends CharacterBody2D
-
+class_name EnemyKnight
 @onready var anim = $AnimatedSprite2D2
+
+
 
 const SPEED = 100.0
 var state
@@ -11,6 +13,8 @@ var attack_cooldown: float = 2.0
 var time_since_last_attack: float = 2
 var alive: bool = true
 var player
+@onready var level: Level
+
 
 enum {
 	WALK,
@@ -57,27 +61,33 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 func walk_state(vel_del):
-	
+
 	#Перемещение тела к игроку
-	
-	if GlobalValue.player_position:
-		position.x = move_toward(position.x, GlobalValue.player_position.x, SPEED*vel_del)
-		position.y = move_toward(position.y, GlobalValue.player_position.y, SPEED*vel_del)		
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-		
+	if GlobalValue.enemyCanMove:
+		if GlobalValue.player_position:
+			position.x = move_toward(position.x, GlobalValue.player_position.x, SPEED*vel_del)
+			position.y = move_toward(position.y, GlobalValue.player_position.y, SPEED*vel_del)		
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+
+	if direction == Vector2(-1,-1):
+		anim.play("walk_down")
+	elif direction == Vector2(1,1):
+		anim.play("walk_up")
 		
 	if alive:
 		if its_player==true:
 			state = HIT
 	else:
 		state=DEATH
-	#anim.play("walk_down")
-
-
-#########################Не закончено#####################################		
+	
+	
 func death_state():
+	#level.spawn_point()
+	GlobalValue.emit_signal("enemydie", position)
+	anim.play("death")
+	await get_tree().create_timer(5)
 	queue_free()
 	
 
@@ -93,9 +103,6 @@ func hit_state():
 	if its_player == false:
 		state = WALK
 	
-#########################Не закончено#####################################	
-
-
 
 	
 #Фунция нанесения урона игроку	

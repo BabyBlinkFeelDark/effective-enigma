@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 class_name Player
 
 
@@ -12,21 +13,22 @@ enum {
 const SPEED = 150.0
 @onready var anim = $AnimatedSprite2D
 @onready var anim_pl = $AnimatedSprite2D
-var health: int = 100
-var exp: int = 0
+
 var emit_xp: int
 var state = WALK
 var player_pos: Vector2
 var player: Vector2
-
-
+var health: int 
 
 func _ready() -> void:
+	health = GlobalValue.max_health
 	pass
 		
 func _physics_process(delta: float) -> void:
 	
-	$Debug/VBoxContainer/Health.set_text(str(health))
+	GlobalValue.health = health
+	
+	$Debug/VBoxContainer/Health.set_text(str(GlobalValue.health))
 	match state:
 		WALK:
 			walk_state(delta)
@@ -78,7 +80,7 @@ func walk_state(vel_del):
 	
 
 	
-	if health<=0:
+	if GlobalValue.health<=0:
 		state=DEATH
 
 #########################Не закончено#####################################
