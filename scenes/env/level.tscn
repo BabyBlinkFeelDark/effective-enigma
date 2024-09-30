@@ -1,32 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxfpn4tgahxbk"]
+[gd_scene load_steps=4 format=3 uid="uid://dxfpn4tgahxbk"]
 
 [ext_resource type="PackedScene" uid="uid://1g7j1cmjkppc" path="res://scenes/essense/player/player.tscn" id="1_0xw47"]
-[ext_resource type="PackedScene" uid="uid://bcvpk3p7tea3o" path="res://scenes/essense/enemies/knight.tscn" id="2_f5ef4"]
+[ext_resource type="Script" path="res://scripts/global/env/levelScripts/level.gd" id="1_287bd"]
+[ext_resource type="Script" path="res://scripts/global/debub/debug.gd" id="3_3w11k"]
 
 [node name="level" type="Node2D"]
+script = ExtResource("1_287bd")
 
 [node name="Player" parent="." instance=ExtResource("1_0xw47")]
 
-[node name="Knight" parent="." instance=ExtResource("2_f5ef4")]
-position = Vector2(86, -6)
+[node name="Debug" type="Node2D" parent="Player"]
+script = ExtResource("3_3w11k")
 
-[node name="Knight2" parent="." instance=ExtResource("2_f5ef4")]
-position = Vector2(59, -43)
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Debug"]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Knight6" parent="." instance=ExtResource("2_f5ef4")]
-position = Vector2(61, 27)
-
-[node name="Knight7" parent="." instance=ExtResource("2_f5ef4")]
-position = Vector2(76, 13)
-
-[node name="Knight8" parent="." instance=ExtResource("2_f5ef4")]
-position = Vector2(74, -27)
-
-[node name="Knight3" parent="." instance=ExtResource("2_f5ef4")]
-position = Vector2(46, 32)
-
-[node name="Knight4" parent="." instance=ExtResource("2_f5ef4")]
-position = Vector2(-11, -58)
-
-[node name="Knight5" parent="." instance=ExtResource("2_f5ef4")]
-position = Vector2(-50, -1)
+[node name="Health" type="Label" parent="Player/Debug/VBoxContainer"]
+layout_mode = 2

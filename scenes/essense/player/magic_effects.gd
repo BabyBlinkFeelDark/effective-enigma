@@ -1,4 +1,5 @@
 extends Node2D
+class_name MagicEffects
 var inst_ball = 0
 var angle_to_rotate: int = 0
 var attacks = []

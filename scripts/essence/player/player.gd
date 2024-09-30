@@ -25,6 +25,8 @@ func _ready() -> void:
 	pass
 		
 func _physics_process(delta: float) -> void:
+	
+	$Debug/VBoxContainer/Health.set_text(str(health))
 	match state:
 		WALK:
 			walk_state(delta)
