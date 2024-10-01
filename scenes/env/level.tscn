@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://1g7j1cmjkppc" path="res://scenes/essense/player/player.tscn" id="1_0xw47"]
 [ext_resource type="Script" path="res://scripts/global/env/levelScripts/level.gd" id="1_287bd"]
+[ext_resource type="PackedScene" uid="uid://bcvpk3p7tea3o" path="res://scenes/essense/enemies/knight.tscn" id="2_f5ef4"]
 [ext_resource type="Script" path="res://scripts/global/debub/debug.gd" id="3_3w11k"]
 [ext_resource type="Texture2D" uid="uid://dfqhdq8t1ftgy" path="res://textures/env/tilesets/Dungeon_Tileset.png" id="4_w1f3g"]
-[ext_resource type="PackedScene" uid="uid://b8qgvv4i3h8f3" path="res://scenes/env/exp_orb.tscn" id="5_62l3e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0gto"]
 texture = ExtResource("4_w1f3g")
@@ -163,5 +163,23 @@ layout_mode = 2
 [node name="EnemiesCanMove" type="Label" parent="Player/Debug/VBoxContainer"]
 layout_mode = 2
 
-[node name="ExpOrb" parent="." instance=ExtResource("5_62l3e")]
-position = Vector2(144, -16)
+[node name="Progress" type="Label" parent="Player/Debug/VBoxContainer"]
+layout_mode = 2
+
+[node name="Knight" parent="." instance=ExtResource("2_f5ef4")]
+position = Vector2(64, 0)
+
+[node name="Knight2" parent="." instance=ExtResource("2_f5ef4")]
+position = Vector2(96, 0)
+
+[node name="Knight3" parent="." instance=ExtResource("2_f5ef4")]
+position = Vector2(128, 0)
+
+[node name="Knight4" parent="." instance=ExtResource("2_f5ef4")]
+position = Vector2(160, 0)
+
+[node name="Knight5" parent="." instance=ExtResource("2_f5ef4")]
+position = Vector2(192, 0)
+
+[node name="Knight6" parent="." instance=ExtResource("2_f5ef4")]
+position = Vector2(232, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://1g7j1cmjkppc"]
+[gd_scene load_steps=58 format=3 uid="uid://1g7j1cmjkppc"]
 
 [ext_resource type="Script" path="res://scripts/essence/player/player.gd" id="1_kcjx1"]
 [ext_resource type="Texture2D" uid="uid://dk28uj4i34axx" path="res://textures/player/death/death_normal_down.png" id="2_2aeqf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ynewfcajevra" path="res://textures/player/walk/walk.png" id="4_di74k"]
 [ext_resource type="PackedScene" uid="uid://b3kpbbkk3fp1x" path="res://scenes/attack/rollin_attack/magic_effects.tscn" id="5_h1fgx"]
 [ext_resource type="PackedScene" uid="uid://buauc150hxatn" path="res://scenes/env/health_bar.tscn" id="6_6nage"]
+[ext_resource type="PackedScene" uid="uid://dumg8l0yri2y2" path="res://scenes/env/attack_direction.tscn" id="7_fk0ho"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xlxm7"]
 atlas = ExtResource("2_2aeqf")
@@ -438,3 +439,6 @@ offset_left = -22.0
 offset_top = -24.0
 offset_right = 22.0
 offset_bottom = -16.0
+
+[node name="AttackDirection" parent="." instance=ExtResource("7_fk0ho")]
+rotation = 6.28319

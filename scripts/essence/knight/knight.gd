@@ -13,7 +13,7 @@ var attack_cooldown: float = 2.0
 var time_since_last_attack: float = 2
 var alive: bool = true
 var player
-@onready var level: Level
+var do_spawn: bool 
 
 
 enum {
@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 	#Машина состояний для NPC
 	if health<=0:
 		alive=false
+		
 	match state:
 		WALK:
 			walk_state(delta)
@@ -80,14 +81,16 @@ func walk_state(vel_del):
 		if its_player==true:
 			state = HIT
 	else:
+		do_spawn=true
 		state=DEATH
 	
 	
 func death_state():
-	#level.spawn_point()
-	GlobalValue.emit_signal("enemydie", position)
+	if do_spawn==true:
+		GlobalValue.emit_signal("enemydie",position)
 	anim.play("death")
-	await get_tree().create_timer(5)
+	do_spawn=false
+	await anim.animation_finished
 	queue_free()
 	
 
@@ -109,14 +112,14 @@ func hit_state():
 func hit():
 	anim.play("down_attack")
 	player.health-=10
-	print(player.health)
+
 	time_since_last_attack = 0
 	
 
 func _on_hit_boxes_body_entered(body: Node2D) -> void:
 	its_player=true
 	player = body
-	print(its_player)
+
 
 
 func _on_hit_boxes_body_exited(body: Node2D) -> void:

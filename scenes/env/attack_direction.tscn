@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dumg8l0yri2y2"]
+
+[ext_resource type="Script" path="res://scenes/UI/attack_direction.gd" id="1_prlr6"]
+[ext_resource type="Texture2D" uid="uid://57fdjlyyvv7q" path="res://textures/env/UI/arrow_2.png" id="2_ererc"]
+
+[node name="AttackDirection" type="Node2D"]
+script = ExtResource("1_prlr6")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(32, 0)
+
+[node name="Arrow2" type="Sprite2D" parent="Marker2D"]
+rotation = -1.5708
+texture = ExtResource("2_ererc")

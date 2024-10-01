@@ -5,13 +5,13 @@ var angle_to_rotate: int = 0
 var attacks = []
 var rotaion_offset
 var ball_rotate_velocity = 5
-var count_ball=0
+var count_ball=5
 var SCENE
 
 func _ready() -> void:
 	#Предзагружаем сцену в переменную SCENE
 	SCENE = preload("res://scenes/attack/fire_ball.tscn")
-	inst_ball = count_ball
+	inst_ball = 0
 	
 
 
@@ -26,10 +26,10 @@ func _process(delta: float) -> void:
 
 #########################Не закончено#####################################
 	#При нажатии ЛКМ увеличиваем количество шаров на 1
-	if Input.is_action_just_pressed("attack"):
-		count_ball+=1
-		print(count_ball)
-		print(attacks)
+	#if Input.is_action_just_pressed("attack"):
+		#count_ball+=1
+		#print(count_ball)
+		#print(attacks)
 
 		
 #Функция для спавна шаров		

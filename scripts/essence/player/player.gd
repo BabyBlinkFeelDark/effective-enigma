@@ -13,7 +13,8 @@ enum {
 const SPEED = 150.0
 @onready var anim = $AnimatedSprite2D
 @onready var anim_pl = $AnimatedSprite2D
-
+var attack_cooldown: float = 0.5
+var time_since_last_attack: float = 20
 var emit_xp: int
 var state = WALK
 var player_pos: Vector2
@@ -25,9 +26,13 @@ func _ready() -> void:
 	pass
 		
 func _physics_process(delta: float) -> void:
+	#print("player: ", get_local_mouse_position())
 	
+	#print("local sight: ", $AttackDirection.position)
+	#print("global sight: ", $AttackDirection.global_position)
+	time_since_last_attack+=get_process_delta_time()
 	GlobalValue.health = health
-	
+	GlobalValue.mouse_angle = rad_to_deg(get_angle_to(get_global_mouse_position()))
 	$Debug/VBoxContainer/Health.set_text(str(GlobalValue.health))
 	match state:
 		WALK:
@@ -52,9 +57,9 @@ func walk_state(vel_del):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-
-	if Input.is_action_just_pressed("attack"):
-		state = ATTACK	
+	if time_since_last_attack>=attack_cooldown:
+		if Input.is_action_just_pressed("attack"):
+			state = ATTACK	
 		
 	#Смена анимации в зависимости от вектора направления Direction
 	if direction.x == -1:
@@ -85,6 +90,10 @@ func walk_state(vel_del):
 
 #########################Не закончено#####################################
 func attack_state():
+	GlobalValue.mouse_dir = get_local_mouse_position()
+	time_since_last_attack = 0 
+	
+	#GlobalValue.mouse_dir = get_local_mouse_position()
 	#print("hello")
 	state = WALK
 	pass
