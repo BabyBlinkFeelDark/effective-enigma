@@ -11,11 +11,18 @@ var max_health: int = 100
 var health: int 
 var mouse_angle: float
 var mouse_dir: Vector2
+var need_player_exp: int = 100
+var game_paused: bool = false
+var count_balls: int = 0
+var damage: int = 10
+var rot_speed: float = 2
 
 func _ready() -> void:
+	player_exp = need_player_exp
 	pass 
 
 
 func _process(delta: float) -> void:
-	
+	if player_exp>need_player_exp:
+		game_paused = true	
 	pass

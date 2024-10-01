@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 
 
 func _on_get_point_body_entered(body: Node2D) -> void:
-	GlobalValue.player_exp+=10
+	GlobalValue.player_exp+=50
 	queue_free()
 
 

@@ -4,8 +4,7 @@ var inst_ball = 0
 var angle_to_rotate: int = 0
 var attacks = []
 var rotaion_offset
-var ball_rotate_velocity = 5
-var count_ball=5
+var count_ball: int
 var SCENE
 
 func _ready() -> void:
@@ -17,9 +16,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	pass
+	count_ball=GlobalValue.count_balls
 	#Задаем направление вращения вокруг оси персонажа
-	$".".rotation_degrees+=ball_rotate_velocity
+	$".".rotation_degrees+=GlobalValue.rot_speed
 	#Если остались незаспавненные шары, то спавним их
 	if count_ball!=0:
 		spawn_ball()

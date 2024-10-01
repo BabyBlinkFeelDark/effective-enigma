@@ -1,6 +1,6 @@
 extends RigidBody2D
 var enemy
-var damage:int = 1000
+
 var count = 0
 var time_since_last:float = 0
 var time_to_life: float = 1.0
@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 		count = 0
 	while GlobalValue.is_enemy == true and is_instance_valid(enemy):
-		enemy.health-=damage
+		enemy.health-=GlobalValue.damage*2
 		GlobalValue.is_enemy = false
 		
 

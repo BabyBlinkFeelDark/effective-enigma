@@ -85,6 +85,7 @@ Num_5={
 
 2d_physics/layer_1="ground"
 2d_physics/layer_2="player"
+2d_navigation/layer_2="player"
 2d_physics/layer_3="enemie"
 
 [rendering]

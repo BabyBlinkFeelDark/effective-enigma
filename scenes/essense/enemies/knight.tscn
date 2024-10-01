@@ -308,5 +308,8 @@ collision_mask = 2
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_w4od8")
 
+[node name="NavigationAgent2D" parent="." index="4"]
+navigation_layers = 3
+
 [connection signal="body_entered" from="HitBoxes" to="." method="_on_hit_boxes_body_entered"]
 [connection signal="body_exited" from="HitBoxes" to="." method="_on_hit_boxes_body_exited"]

@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	#Увеличиваем спавн рэйт каждые 20 секунд
 	if progress_state <= 10:
 		progress+=get_process_delta_time()
-		if progress>1:
+		if progress>20:
 			progress_state+=1
 			progress=0
 	else:
@@ -37,6 +37,7 @@ func spawn_knight():
 	enemy.global_position = (Vector2(randi_range(-80,80),randi_range(-80,80)))
 	add_child(enemy)
 	time_since_last_spawn_enemy = 0
+
 
 func spawn_arrow(pos:Vector2,rot:float):
 	var arrow = ARROW_SCENE.instantiate()

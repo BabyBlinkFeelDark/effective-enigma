@@ -412,6 +412,7 @@ height = 22.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_kcjx1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -425,13 +426,6 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_b1m6e")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-limit_left = -1008
-limit_top = -736
-limit_right = 1136
-limit_bottom = 816
-
 [node name="MagicEffects" parent="." instance=ExtResource("5_h1fgx")]
 
 [node name="HealthBar" parent="." instance=ExtResource("6_6nage")]
@@ -442,3 +436,10 @@ offset_bottom = -16.0
 
 [node name="AttackDirection" parent="." instance=ExtResource("7_fk0ho")]
 rotation = 6.28319
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_left = -1008
+limit_top = -736
+limit_right = 1136
+limit_bottom = 816
