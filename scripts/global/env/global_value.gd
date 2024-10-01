@@ -8,13 +8,13 @@ var on_spawn_enemy: bool = true
 var player_exp: int = 0
 var enemyCanMove: bool = true
 var max_health: int = 100
-var health: int 
+var health: int = 100
 var mouse_angle: float
 var mouse_dir: Vector2
 var need_player_exp: int = 100
 var game_paused: bool = false
 var count_balls: int = 0
-var damage: int = 10
+var damage: int = 20
 var rot_speed: float = 2
 
 func _ready() -> void:

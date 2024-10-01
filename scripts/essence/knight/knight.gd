@@ -90,6 +90,7 @@ func walk_state(vel_del):
 	
 	
 func death_state():
+	velocity = Vector2.ZERO
 	if do_spawn==true:
 		GlobalValue.emit_signal("enemydie",position)
 	anim.play("death")
@@ -102,7 +103,7 @@ func death_state():
 
 
 func hit_state():
-
+	velocity = Vector2.ZERO
 	#Дожидаемся отката кулдауна и наносим удар, вызывая функцию hit
 	time_since_last_attack+=get_process_delta_time()
 	if time_since_last_attack>=attack_cooldown:
@@ -115,7 +116,7 @@ func hit_state():
 #Фунция нанесения урона игроку	
 func hit():
 	anim.play("down_attack")
-	player.health-=10
+	GlobalValue.health-=10
 
 	time_since_last_attack = 0
 	

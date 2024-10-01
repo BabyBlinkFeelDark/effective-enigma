@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	#print("local sight: ", $AttackDirection.position)
 	#print("global sight: ", $AttackDirection.global_position)
 	time_since_last_attack+=get_process_delta_time()
-	GlobalValue.health = health
+	#GlobalValue.health = health
 	GlobalValue.mouse_angle = rad_to_deg(get_angle_to(get_global_mouse_position()))
 	$Debug/VBoxContainer/Health.set_text(str(GlobalValue.health))
 	match state:

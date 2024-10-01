@@ -4,14 +4,14 @@ var enemy
 var count = 0
 var time_since_last:float = 0
 var time_to_life: float = 1.0
-
+var SPEED: int = 800
 
 func _ready() -> void:
 	pass
 
 
 func _physics_process(delta: float) -> void:
-	position +=Vector2(GlobalValue.mouse_dir.x, GlobalValue.mouse_dir.y)/5
+	linear_velocity = Vector2(GlobalValue.mouse_dir.x*delta*SPEED, GlobalValue.mouse_dir.y*delta*SPEED)
 	time_since_last+=get_process_delta_time()
 	if time_since_last>=time_to_life:
 		queue_free()
