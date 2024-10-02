@@ -27,7 +27,7 @@ func _ready() -> void:
 		
 func _physics_process(delta: float) -> void:
 	#print("player: ", get_local_mouse_position())
-	
+
 	#print("local sight: ", $AttackDirection.position)
 	#print("global sight: ", $AttackDirection.global_position)
 	time_since_last_attack+=get_process_delta_time()
@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 
-func walk_state(vel_del):
+func walk_state(_vel_del):
 	GlobalValue.player_position = position
 	var direction : Vector2
 	direction.x = Input.get_axis("left", "right")

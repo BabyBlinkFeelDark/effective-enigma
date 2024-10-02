@@ -22,7 +22,7 @@ func _ready() -> void:
 	pass 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_exp>need_player_exp:
 		game_paused = true	
 	pass

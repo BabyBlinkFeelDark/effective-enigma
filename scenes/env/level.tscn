@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxfpn4tgahxbk"]
+[gd_scene load_steps=14 format=3 uid="uid://dxfpn4tgahxbk"]
 
 [ext_resource type="PackedScene" uid="uid://1g7j1cmjkppc" path="res://scenes/essense/player/player.tscn" id="1_0xw47"]
 [ext_resource type="Script" path="res://scripts/global/env/levelScripts/level.gd" id="1_287bd"]
 [ext_resource type="Script" path="res://scripts/global/debub/debug.gd" id="3_3w11k"]
+[ext_resource type="PackedScene" uid="uid://b4sypwxeac6d2" path="res://scenes/UI/menu/pause.tscn" id="4_dqp8b"]
 [ext_resource type="Texture2D" uid="uid://dfqhdq8t1ftgy" path="res://textures/env/tilesets/Dungeon_Tileset.png" id="4_w1f3g"]
 [ext_resource type="PackedScene" uid="uid://dneodoenbog0q" path="res://scenes/UI/level_up.tscn" id="5_58om4"]
 [ext_resource type="Script" path="res://scripts/global/UI/time_to_stop.gd" id="5_ggmtt"]
@@ -184,6 +185,8 @@ clip_contents = true
 custom_minimum_size = Vector2(88, 29)
 offset_right = 16.0
 offset_bottom = -12.0
+
+[node name="Pause" parent="TimeToStop/CanvasLayer" instance=ExtResource("4_dqp8b")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dk503")

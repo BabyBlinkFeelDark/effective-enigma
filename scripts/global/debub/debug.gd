@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		visible=false
 	if Input.is_action_just_pressed("Num_1") and is_debug:
 		for i in range (0,1):
-			owner.spawn_knight()
+			owner.spawn_enemies()
 	if Input.is_action_just_pressed("Num_2") and is_debug:	
 		GlobalValue.on_spawn_enemy = !GlobalValue.on_spawn_enemy
 	if Input.is_action_just_pressed("Num_3") and is_debug:	

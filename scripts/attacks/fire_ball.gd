@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	#Делаем проверку, существует ли сущность, чтобы избавиться от ошибки, когда enemy.health == Nill
 	while GlobalValue.is_enemy == true and is_instance_valid(enemy):
@@ -27,6 +27,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	enemy = body
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	#Говорим что тело body вышло из зоны
 	GlobalValue.is_enemy = false
